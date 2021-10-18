@@ -1,18 +1,12 @@
 import React from 'react'
-import { withRouter, Link } from 'react-router-dom'
-
+import { withRouter } from 'react-router-dom'
+import Header from '../commons/Header'
 const Layout = ({ children }) => {
-  console.log('me renderizo')
   return (
-    <div>
-      <div>
-        <Link to='/'>home</Link>
-        <Link to='/settings'>settings</Link>
-        <Link to='/users'>users</Link>
-        <Link to='/login'>login</Link>
-      </div>
-      {children}
-    </div>
+    <>
+      <Header />
+      <div className='movi-content'>{children}</div>
+    </>
   )
 }
 

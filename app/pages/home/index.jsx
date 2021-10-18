@@ -1,37 +1,37 @@
-import React, { useContext } from 'react'
-import { Counter } from 'flux/store'
-import * as counterAction from 'actions/counter'
+import React, { useState, useEffect } from 'react'
 import Button from '@components/Button'
+import Input from '@components/Input'
 
 import style from './style.module.scss'
 const Home = () => {
-  const counterDispatch = useContext(Counter.Dispatch)
-
-  const addValue = (value) => {
-    counterDispatch(counterAction.incrementCounter(value))
+  const [isDisabled, setIsDisabled] = useState(true)
+  const [form, setForm] = useState('')
+  const handleData = (value) => {
+    console.log(value)
+    setForm(value)
   }
-
-  const substractValue = (value) => {
-    counterDispatch(counterAction.decrementCounter(value))
-  }
-
-  const resetValue = () => {
-    counterDispatch(counterAction.resetCounter())
-  }
-
+  useEffect(() => {
+    if (form.length > 1) setIsDisabled(false)
+  }, [form])
   return (
-    <div className='layout'>
-      <button onClick={() => addValue(1)}>Increment</button>
-      <button onClick={() => substractValue(1)}>Decrement</button>
-      <button onClick={() => resetValue()}>Decrement</button>
-      <div className={style.wrapper}>
-        <div className={style.wrapper__text}>¿hola cómo estás?</div>
-        <div className={style.wrapper__emoji}>
-          <span role='img' aria-label='happy'>
-            😊
-          </span>
-          <Button text='Click aca' size='medium' primary />
-        </div>
+    <div className={style.wrapper}>
+      <div className={style.wrapper__img}></div>
+      <div className={style.wrapper__form}>
+        <h2>Verifica tu producto</h2>
+        <p>
+          Llena algunos datos y solícita el certificado de garantía de tu
+          producto
+        </p>
+        <Input
+          label='Número de serie'
+          value={form}
+          onChange={handleData}
+          minLength={12}
+          maxLength={12}
+          hasError={form && form.length < 12 && 'Documento inválido'}
+        />
+
+        <Button text='Verificar' size='medium' primary disabled={isDisabled} />
       </div>
     </div>
   )

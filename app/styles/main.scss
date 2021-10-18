@@ -1,19 +1,15 @@
 // Configuración
 @import 'base/_variables';
-
 // Reset
 @import 'base/_reset';
 @import 'base/_grid';
-
-
 // Typografia
 @import 'base/typography';
-
 // Componentes
 @import 'components/button';
 @import 'components/input';
-
+@import 'components/header';
 .layout {
-  padding: 15px;
-  border: 1px dashed black;
+    padding: 15px;
+    border: 1px dashed black;
 }

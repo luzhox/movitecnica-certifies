@@ -1,14 +1,14 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  text-decoration: none;
-  box-shadow: none;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    box-shadow: none;
 }
 
 //Width column
 @function col($columns, $total) {
-  @return (100% / $total) * $columns;
+    @return (100% / $total) * $columns;
 }
 
 //Breakpoints
@@ -17,52 +17,45 @@ $small-screen: 480px;
 $medium-screen: 768px;
 $large-screen: 1200px;
 $xlarge-screen: 1360px;
-
 //Width column
 @function col($columns, $total) {
-  @return (100% / $total) * $columns;
+    @return (100% / $total) * $columns;
 }
-
-
 
 @mixin media($types...) {
-  @each $type in $types {
-
-    //only mobile or mobile down
-    @if $type==mobile {
-      @media only screen and (max-width: $medium-screen - 1) {
-        @content;
-      }
+    @each $type in $types {
+        //only mobile or mobile down
+        @if $type==mobile {
+            @media only screen and (max-width: $medium-screen - 1) {
+                @content;
+            }
+        }
+        @if $type==mobile-tablet {
+            @media only screen and (min-width: $small-screen) {
+                @content;
+            }
+        }
+        //tableb up
+        @if $type==tablet {
+            @media only screen and (min-width: $medium-screen) {
+                @content;
+            }
+        }
+        //desktopmini up
+        @if $type==desktopmini {
+            @media only screen and (min-width: $large-screen) {
+                @content;
+            }
+        }
+        //desktop up
+        @if $type==desktop {
+            @media only screen and (min-width: $xlarge-screen) {
+                @content;
+            }
+        }
     }
-
-    @if $type==mobile-tablet {
-      @media only screen and (min-width: $small-screen) {
-        @content;
-      }
-    }
-
-    //tableb up
-    @if $type==tablet {
-      @media only screen and (min-width: $medium-screen) {
-        @content;
-      }
-    }
-
-    //desktopmini up
-    @if $type==desktopmini {
-      @media only screen and (min-width: $large-screen) {
-        @content;
-      }
-    }
-
-    //desktop up
-    @if $type==desktop {
-      @media only screen and (min-width: $xlarge-screen) {
-        @content;
-      }
-    }
-  }
 }
+
 
 /* Center and max-width the content */
 
@@ -71,18 +64,16 @@ $xlarge-screen: 1360px;
     max-width: 480px;
     margin-left: auto;
     margin-right: auto;
-    @include media(tablet){
-      width: 100%;
+    @media only screen and (min-width: 768px) {
+        width: 100%;
     }
-  @media only screen and (min-width: 768px) and (max-width: 1023px) {
-    max-width: 592px;
-  }
-
-  @media only screen and (min-width: 1024px) and (max-width: 1199px) {
-    max-width: 840px;
-  }
-
-  @media only screen and (min-width: 1200px) and (max-width: 1360px) {
-    max-width: 1184px;
-  }
+    @media only screen and (min-width: 768px) and (max-width: 1023px) {
+        max-width: 592px;
+    }
+    @media only screen and (min-width: 1024px) and (max-width: 1199px) {
+        max-width: 840px;
+    }
+    @media only screen and (min-width: 1200px) {
+        max-width: 1184px;
+    }
 }
