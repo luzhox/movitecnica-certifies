@@ -67,6 +67,7 @@
         width: 100%;
         height: auto;
         text-align: right;
+       margin-top: 40px;
         @include media(desktopmini) {
             position: fixed;
             right: 0;
