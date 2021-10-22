@@ -9,7 +9,5 @@
 @import 'components/button';
 @import 'components/input';
 @import 'components/header';
-.layout {
-    padding: 15px;
-    border: 1px dashed black;
-}
+@import 'components/banner';
+@import 'pages/confirm-page';

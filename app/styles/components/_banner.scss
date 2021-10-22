@@ -1,0 +1,57 @@
+.banner-movitecnica {
+    display: flex;
+    flex-flow: wrap;
+    justify-content: center;
+    &__content {
+        display: flex;
+        flex-flow: wrap;
+        align-items: center;
+        width: 84%;
+        max-width: 480px;
+        text-align: center;
+        padding-top: 24px;
+        padding-bottom: 24px;
+        @include media (desktopmini) {
+            text-align: left;
+            width: 100%;
+            max-width: 870px;
+            padding-top: 12px;
+            padding-bottom: 12px;
+        }
+        p {
+            font-size: 20px;
+            line-height: 156%;
+            color: #FFFFFF;
+            font-family: $poppins;
+            font-weight: 400;
+            letter-spacing: -0.002em;
+            margin-right: 24px;
+            width: 100%;
+            @include media (desktopmini) {
+                width: auto;
+            }
+        }
+        button {
+            padding: 8px 20px;
+            -webkit-appearance: none;
+            appearance: none;
+            background-color: $orange;
+            border-radius: 4px;
+            font-size: 16px;
+            line-height: 156%;
+            font-family: $poppins;
+            color: white;
+            font-weight: 700;
+            border: 0px;
+            box-shadow: 0px;
+            outline: none;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 16px;
+            @include media (desktopmini) {
+                margin-top: 0px;
+                margin-left: 0;
+            }
+        }
+    }
+}

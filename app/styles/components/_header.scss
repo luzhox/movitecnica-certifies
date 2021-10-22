@@ -1,41 +1,15 @@
 .header-movitecnica {
-    border-bottom: 1px solid #CFD0E6;
+    border-bottom: 1px solid $lightgray;
     .container {
         display: flex;
         flex-flow: wrap;
         justify-content: space-between;
         align-items: center;
     }
-    &__brand {}
-    &__nav {
-        ul {
-            display: flex;
-            flex-flow: wrap;
-            align-items: center;
-            min-height: 86px;
-            li {
-                display: inline-block;
-                margin-right: 56px;
-                a {
-                    display: inline-block;
-                    font-family: $poppins;
-                    color: #5b5b5f;
-                    font-size: 15px;
-                    display: block;
-                    font-weight: 600;
-                }
-                &:last-child {
-                    margin-right: 0px;
-                    a {
-                        padding: 12px 24px;
-                        text-align: center;
-                        color: #6ec212;
-                        border: 1px solid #6ec212;
-                        border-radius: 8px;
-                        font-size: 15px;
-                    }
-                }
-            }
-        }
+    &__brand {
+        padding-top: 16px;
+        padding-bottom: 16px;
+        width: 100%;
+        text-align: center;
     }
 }

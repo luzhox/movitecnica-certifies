@@ -3,7 +3,7 @@
     display: grid;
     justify-content: center;
     outline: none;
-    background: #ffffff;
+    background: white;
     margin: 0;
     box-shadow: none;
     padding: 0;
@@ -30,24 +30,24 @@
         }
     }
     &+.rd--input-error {
-        font-family: $roboto;
+        font-family: $poppins;
         font-style: normal;
         font-weight: normal;
         font-size: 10px;
         line-height: 16px;
-        color: $red3;
+        color: $red;
         display: block;
         margin-bottom: 16px;
         text-align: left;
     }
     &+.rd--input-span {
-        font-family: $roboto;
+        font-family: $poppins;
         font-style: normal;
         font-weight: 300;
         font-size: 12px;
         line-height: 20px;
         letter-spacing: 0.2px;
-        color: #161845;
+        color: $gray;
         display: flex;
         align-items: center;
         // padding-bottom: 16px;
@@ -55,12 +55,12 @@
             margin-right: 8px;
         }
         &+.rd--input-error {
-            font-family: $roboto;
+            font-family: $poppins;
             font-style: normal;
             font-weight: normal;
             font-size: 10px;
             line-height: 16px;
-            color: $red3;
+            color: $red;
             display: block;
             margin-top: 16px;
             margin-bottom: 16px;
@@ -73,7 +73,7 @@
         font-weight: normal;
         font-size: 16px;
         line-height: 24px;
-        color: #161845;
+        color: $gray;
         position: absolute;
         left: 16px;
         top: 17px;
@@ -93,7 +93,7 @@
         font-weight: normal;
         font-size: 18px;
         line-height: 120%;
-        color: #161845;
+        color: $gray;
         position: absolute;
         z-index: 1;
         padding: 16px;
@@ -102,7 +102,7 @@
         background: transparent;
         outline: none;
         box-shadow: none;
-        border: 1px solid #CFD0E6;
+        border: 1px solid $lightgray;
         letter-spacing: 1px;
         font-weight: 700;
         &[type="number"]::-webkit-inner-spin-button,
@@ -124,7 +124,7 @@
             color: $gray2;
         }
         input {
-            border-color: #001F30;
+            border-color: $gray;
         }
         & .rd--input--sufix {
             color: $gray2;
@@ -132,16 +132,16 @@
     }
     &.active {
         &>label {
-            // font-family: $roboto;
-            // color: #161845;
+            // font-family: $poppins;
+            // color: $gray;
         }
         &>input {
             font-family: $poppins;
-            color: #CFD0E6;
+            color: $lightgray;
             // padding-bottom: 8px;
-            border-color: #001F30;
+            border-color: $gray;
             &:hover {
-                border-color: #001F30;
+                border-color: $gray;
             }
         }
         & .rd--input--sufix {
@@ -150,20 +150,20 @@
     }
     &.filled {
         &>label {
-            font-family: $roboto;
+            font-family: $poppins;
             font-size: 12px;
             line-height: 16px;
-            color: #161845;
+            color: $gray;
             top: 8px;
         }
         &>input {
             font-family: $poppins;
-            color: #001F30;
+            color: $gray;
             padding-top: 24px;
             padding-bottom: 8px;
-            border-color: #001F30;
+            border-color: $gray;
             &:hover {
-                border-color: #001F30;
+                border-color: $gray;
             }
         }
         & .rd--input--sufix {
@@ -181,23 +181,23 @@
     &.disabled,
     &.disabled:hover {
         pointer-events: none;
-        background: $gray6 !important;
+        background: $lightgray !important;
         &.has-error,
         &.has-error:hover {
-            background: $gray6 !important;
+            background: $lightgray !important;
             input {
-                border-color: #CFD0E6 !important;
+                border-color: $lightgray !important;
             }
         }
         &>label {
-            color: #001F30;
+            color: $gray;
         }
         &>input {
             font-family: $poppins;
-            border-color: #CFD0E6!important;
-            color: #001F30;
+            border-color: $lightgray!important;
+            color: $gray;
             text-overflow: ellipsis;
-            -webkit-text-fill-color: #001F30;
+            -webkit-text-fill-color: $gray;
             opacity: 1;
         }
     }

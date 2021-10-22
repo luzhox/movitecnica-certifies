@@ -56,7 +56,6 @@ const Button = ({
           {!isEmpty(internalIconRight) && (
             <div className='ui--button-icon-right'>{internalIconRight}</div>
           )}
-          {children}
         </>
       )}
     </button>
@@ -90,7 +89,6 @@ Button.propTypes = {
    * Should be `true` when only text should be displayed.
    */
   text: PropTypes.string,
-  children: PropTypes.node,
   size: PropTypes.oneOf(['small', 'medium', 'large']),
   fullWidth: PropTypes.bool,
   disabled: PropTypes.bool,
@@ -110,7 +108,6 @@ Button.defaultProps = {
   hasBgRed: false,
   iconRight: false,
   iconLeft: false,
-  children: PropTypes.node,
 }
 
 export default Button

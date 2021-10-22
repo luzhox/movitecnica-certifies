@@ -1,96 +1,16 @@
-// Colores
-$white: #ffffff;
-$customRed: red;
-$poppins: 'Poppins',
-sans-serif;
-// Fuentes
-// $font: 'Arial'
-// Directorio de img
-$ASSETS: '/resources/assets/';
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto:wght@300;400;500&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap");
+//Assets base
+$ASSETS: '/resources/assets/';
 //Reds
-$red0: #b22630;
-$red: #ef3340;
-$red2: #fc4e55;
-$red3: #fc606b;
-$red4: #ffd7da;
-$red5: #fee7e9;
-$red6: #ffe6c2;
-$red7: #ff0000;
+$red: #eb2e3a;
+$orange: #EA730E;
 //Grays
-$gray: #494f66;
+$gray:#001F30;
 $gray2: #676f8f;
 $gray3: #a3abcc;
-$gray4: #c5cbe0;
-$gray5: #e4e8f7;
-$gray6: #f0f2fa;
-$gray7: #f7f8fc;
-$gray8: #edeff5;
-$gray9: #a9b1d1;
-$gray10: #d4d5e8;
-$gray11: #f7f7fa;
-//Gray cambios componente tarjeta gray_1_titulos
-$gray12: #42475c;
-$gray13: #67708f;
-//Acian, poner prefijo old
-$acian: #939dff;
-$acian2: #6f7dff;
-//Nuevos Acian para usar
-$newAcian: #3c3ffa;
-$newAcian2: #6769ff;
-$newAcian3: #e0e1ff;
-//Green
-$green2: #cfedc0;
-$green2_1: #d8f7c8;
-$green3: #e9f7e2;
-$green4: #92d66f;
-$green: #43b748;
-$green1: #19801d;
-$newGreen2: #43b748;
-$newGreen3: #d9f8db;
-//Orange
-$orange1: #8c5c1c;
-$orange: #ffa733;
-$orange2: #ffdca9;
-$orange3: #ffefd8;
-//Blank
-$blank: #fff;
-//White
-$white: #ffffff;
-$white2: #fafafc;
-$white3: #f7f7fa;
-//Lilac
-$lilac: #d795ff;
-$lilac2: #fbf3ff;
+$lightgray: #CFD0E6;
 //Fonts
 $poppins: "Poppins",
 Arial,
 sans-serif;
-$lato: "Lato",
-Arial,
-sans-serif;
-$roboto: "Roboto",
-sans-serif;
-//Color Modal
-$overlay: rgba(73,
-80,
-102,
-0.8);
-// Mobile Breakpoints
-$mobile-screen: 280px;
-$small-screen: 425px;
-$medium-screen: 1023px;
-// Color slider
-$slider: #a9b1d1;
-$berry_500: #6464fa;
-$berry_600: #4f4fff;
-$success_300: #389e0d;
-$neutral_100: #fafbff;
-$neutral_200: #edeffc;
-$neutral_400: #d7dbf5;
-$neutral_500: #a9afd9;
-$neutral_600: #7981b2;
-$neutral_700: #141938;
-$red_500: #ff1c44;
-$yellow_700: #faaf37;

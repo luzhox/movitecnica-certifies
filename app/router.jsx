@@ -4,7 +4,7 @@ import { Route, BrowserRouter, Switch } from 'react-router-dom'
 import Layout from 'components/layout'
 import NotFoundPage from 'pages/404'
 import { Store } from 'flux/store'
-
+import history from './utils/history'
 const routes = [
   {
     path: '/',
@@ -12,25 +12,15 @@ const routes = [
     exact: true,
   },
   {
-    path: '/settings',
-    Component: lazy(() => import('./pages/settings')),
-    exact: true,
-  },
-  {
-    path: '/users',
-    Component: lazy(() => import('./pages/users')),
-    exact: true,
-  },
-  {
-    path: '/login',
-    Component: lazy(() => import('./pages/login')),
+    path: '/confirmacion',
+    Component: lazy(() => import('./pages/confirmacion')),
     exact: true,
   },
 ]
 
 const Router = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter history={history}>
       <Store>
         <Layout>
           <Switch>
