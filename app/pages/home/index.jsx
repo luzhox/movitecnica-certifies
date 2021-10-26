@@ -2,23 +2,41 @@ import React, { useState, useEffect } from 'react'
 import Button from '@components/Button'
 import Input from '@components/Input'
 import { Redirect } from 'react-router-dom'
+import axios from 'axios'
 import style from './style.module.scss'
 
 const Home = () => {
   const [isDisabled, setIsDisabled] = useState(true)
   const [confirm, setConfirm] = useState(false)
+  const [errorExist, setErrorExist] = useState(false)
 
-  const [form, setForm] = useState('')
+  const [form, setForm] = useState(false)
   const handleData = (value) => {
-    console.log(value)
     setForm(value)
   }
   useEffect(() => {
-    if (form.length > 1) setIsDisabled(false)
+    console.log(form)
+    if (form && form.length < 2) {
+      setIsDisabled(true)
+      return setErrorExist('Ingrese un número de serie válido')
+    }
+    setIsDisabled(false)
+    return setErrorExist(false)
   }, [form])
 
-  const submitForm = () => {
-    setConfirm(true)
+  const submitForm = async () => {
+    await axios
+      .post('http://movitecnica.hadronica.pe/consultar', { g_serie: form })
+      .then((response) => {
+        if (response.data.length) {
+          sessionStorage.setItem('data', JSON.stringify(response.data[0]))
+          return setConfirm(true)
+        }
+        return setErrorExist('No existen registros para este número de serie')
+      })
+      .catch((error) => {
+        return console.error(error)
+      })
   }
   return (
     <div className={style.wrapper}>
@@ -34,9 +52,9 @@ const Home = () => {
           label='Número de serie'
           value={form}
           onChange={handleData}
-          minLength={12}
+          minLength={2}
           maxLength={12}
-          hasError={form && form.length < 12 && 'Documento inválido'}
+          hasError={errorExist.length ? errorExist : ''}
         />
 
         <Button

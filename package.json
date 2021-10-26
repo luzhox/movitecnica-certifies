@@ -20,11 +20,13 @@
     "homepage": "https://github.com/luzhox/react-boilertemplate#readme",
     "dependencies": {
         "@hot-loader/react-dom": "^16.13.0",
+        "axios": "^0.24.0",
         "clsx": "^1.1.1",
         "heic-convert": "^1.2.4",
         "history": "^5.0.1",
         "immer": "^6.0.9",
         "lodash": "^4.17.21",
+        "moment": "^2.29.1",
         "prop-types": "^15.7.2",
         "react": "^16.13.1",
         "react-dom": "^16.13.1",

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Banner from '@components/Banner'
+import moment from 'moment'
 const Confirmacion = () => {
   const [product, setProduct] = useState({
     name: '',
@@ -10,13 +11,16 @@ const Confirmacion = () => {
     endedTime: '',
   })
   useEffect(() => {
+    const data = JSON.parse(sessionStorage.getItem('data'))
     setProduct({
-      name: 'Cerro Verde S.A.A',
-      model: 'Polipasto eléctrico con Trolley Motorizado YJL + VTE / 2 TON 1',
-      brand: 'Yale',
-      serie: 'JM3110VX / A11411',
-      periodo: '6',
-      endedTime: '30/10/2021',
+      name: data.g_nombre,
+      model: data.g_modelo,
+      brand: data.g_marca,
+      serie: data.g_serie,
+      periodo: 3,
+      emision: data.g_fecha_emi,
+      vencimiento: moment(data.g_fecha_ven).format('DD/MM/YYYY'),
+      estado: data.g_estado,
     })
   }, [])
   return (
@@ -55,7 +59,7 @@ const Confirmacion = () => {
 
             <div className='confirm-page__ended'>
               <p>
-                Tu garantía vence el: <strong>{product.endedTime}</strong>
+                Tu garantía vence el: <strong>{product.vencimiento}</strong>
               </p>
             </div>
           </div>
