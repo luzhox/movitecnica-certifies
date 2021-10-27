@@ -29,7 +29,7 @@ const Confirmacion = () => {
         route='./resources/assets/bg-banner.jpg'
         text='!Tu garantía está próximo a vencer! Programa tu mantenimiento'
         btnText='¡Solicitalo ya!'
-        btnUrl='https://movitecnica.com.pe/'
+        btnUrl='https://wa.me/message/67NI2XRVSIL5C1'
       />
       <div className='confirm-page'>
         <div className='container'>
