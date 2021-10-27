@@ -19,7 +19,7 @@ const Confirmacion = () => {
       serie: data.g_serie,
       periodo: 3,
       emision: data.g_fecha_emi,
-      vencimiento: moment(data.g_fecha_ven).format('DD/MM/YYYY'),
+      vencimiento: moment.utc(data.g_fecha_ven).format('DD/MM/YYYY'),
       estado: data.g_estado,
     })
   }, [])
