@@ -29,7 +29,8 @@
         max-width: 480px;
         margin-right: auto;
         margin-left: auto;
-        margin-top: 64px;
+        margin-top: 48px;
+        margin-bottom: 48px;
         @include media(desktopmini) {
             max-width: 100%;
             width: col(10, 37);

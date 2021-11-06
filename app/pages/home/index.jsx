@@ -26,7 +26,7 @@ const Home = () => {
 
   const submitForm = async () => {
     await axios
-      .post('http://movitecnica.hadronica.pe/consultar', { g_serie: form })
+      .post('https://movitecnica.hadronica.pe/consultar', { g_serie: form })
       .then((response) => {
         if (response.data.length) {
           sessionStorage.setItem('data', JSON.stringify(response.data[0]))

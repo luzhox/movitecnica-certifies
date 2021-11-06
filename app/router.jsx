@@ -30,7 +30,7 @@ const Router = () => {
                 key={path}
                 exact={exact}
                 component={() => (
-                  <Suspense fallback={<div>Loading...</div>}>
+                  <Suspense fallback={<div></div>}>
                     <Component />
                   </Suspense>
                 )}

@@ -12,12 +12,15 @@ const Confirmacion = () => {
   })
   useEffect(() => {
     const data = JSON.parse(sessionStorage.getItem('data'))
+    const emision = moment(data.g_fecha_emi)
+    const vencimiento = moment(data.g_fecha_ven)
+    const garantia = vencimiento.diff(emision, 'months')
     setProduct({
       name: data.g_nombre,
       model: data.g_modelo,
       brand: data.g_marca,
       serie: data.g_serie,
-      periodo: 3,
+      periodo: garantia,
       emision: data.g_fecha_emi,
       vencimiento: moment.utc(data.g_fecha_ven).format('DD/MM/YYYY'),
       estado: data.g_estado,
@@ -39,7 +42,7 @@ const Confirmacion = () => {
               <p>Te mostramos el detalle de tu producto</p>
             </div>
             <h3>Modelo:</h3>
-            <p>{product.model}</p>
+            <p> {product.model}</p>
             <div className='confirm-page__group'>
               <div className='confirm-page__group__field'>
                 <h3>Marca:</h3>
