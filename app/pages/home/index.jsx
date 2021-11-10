@@ -45,8 +45,8 @@ const Home = () => {
       <div className={style.wrapper__form}>
         <h2>Verifica tu producto</h2>
         <p>
-          Llena algunos datos y solícita el certificado de garantía de tu
-          producto
+          Ingresa el número de serie de tu tecle o polipasto y certifica tu
+          equipo
         </p>
         <Input
           label='Número de serie'
