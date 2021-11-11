@@ -1,10 +1,13 @@
 import { hot } from 'react-hot-loader/root'
+import { AppContainer } from 'react-hot-loader'
+
 import React, { lazy, Suspense } from 'react'
 import { Route, BrowserRouter, Switch } from 'react-router-dom'
 import Layout from 'components/layout'
-import NotFoundPage from 'pages/404'
-import { Store } from 'flux/store'
+import { Provider } from 'react-redux'
+import Store from './redux/store'
 import history from './utils/history'
+import Home from './pages/home'
 const routes = [
   {
     path: '/',
@@ -18,30 +21,31 @@ const routes = [
   },
 ]
 
-const Router = () => {
+const Routero = () => {
   return (
-    <BrowserRouter history={history}>
-      <Store>
-        <Layout>
-          <Switch>
-            {routes.map(({ path, Component, exact }) => (
-              <Route
-                path={path}
-                key={path}
-                exact={exact}
-                component={() => (
-                  <Suspense fallback={<div></div>}>
-                    <Component />
-                  </Suspense>
-                )}
-              />
-            ))}
-            <Route component={NotFoundPage} />
-          </Switch>
-        </Layout>
-      </Store>
-    </BrowserRouter>
+    <Provider store={Store}>
+      <AppContainer>
+        <BrowserRouter history={history}>
+          <Layout>
+            <Switch>
+              {routes.map(({ path, Component, exact }) => (
+                <Route
+                  path={path}
+                  key={path}
+                  exact={exact}
+                  component={() => (
+                    <Suspense fallback={<Home />}>
+                      <Component />
+                    </Suspense>
+                  )}
+                />
+              ))}
+            </Switch>
+          </Layout>
+        </BrowserRouter>
+      </AppContainer>
+    </Provider>
   )
 }
-
-export default hot(Router)
+Routero()
+export default hot(Routero)

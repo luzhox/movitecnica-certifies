@@ -9,6 +9,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const path = require('path')
 const webpack = require('webpack')
 const Dotenv = require('dotenv-webpack')
+const ENV = require('./env')
+const { PORT, API_ROOT } = ENV[process.env.NODE_ENV]
 
 const isProd = process.env.NODE_ENV === 'production'
 const JSON_ENV = JSON.stringify(process.env.NODE_ENV)
@@ -99,7 +101,7 @@ module.exports = {
     plugins: [
         new SimpleProgressWebpackPlugin({ format: 'compact' }),
         new Dotenv(),
-        new webpack.DefinePlugin({ 'process.env': { NODE_ENV: JSON_ENV } }),
+        new webpack.DefinePlugin({ 'process.env': { NODE_ENV: JSON_ENV },"process.env.API_ROOT": JSON.stringify(API_ROOT) }),
         new FriendlyErrorsWebpackPlugin(),
         new HtmlWebPackPlugin({ template: './public/index.html' }),
         new MiniCssExtractPlugin({
@@ -115,7 +117,7 @@ module.exports = {
         }),
         new BrowserSyncPlugin({
             host: 'localhost',
-            port: 4000,
+            port: PORT,
             proxy: 'http://localhost:4000/',
             open: true,
         }),

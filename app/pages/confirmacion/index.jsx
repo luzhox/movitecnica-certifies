@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import Banner from '@components/Banner'
 import moment from 'moment'
+import { useSelector } from 'react-redux'
+import { useHistory } from 'react-router-dom'
+
 const Confirmacion = () => {
+  const history = useHistory()
+
   const [product, setProduct] = useState({
     name: '',
     model: '',
@@ -10,22 +15,26 @@ const Confirmacion = () => {
     periodo: '',
     endedTime: '',
   })
+  const data = useSelector((state) => state.loader.home.data)
+
   useEffect(() => {
-    const data = JSON.parse(sessionStorage.getItem('data'))
-    const emision = moment(data.g_fecha_emi)
-    const vencimiento = moment(data.g_fecha_ven)
-    const garantia = vencimiento.diff(emision, 'months')
-    setProduct({
-      name: data.g_nombre,
-      model: data.g_modelo,
-      brand: data.g_marca,
-      serie: data.g_serie,
-      periodo: garantia,
-      emision: data.g_fecha_emi,
-      vencimiento: moment.utc(data.g_fecha_ven).format('DD/MM/YYYY'),
-      estado: data.g_estado,
-    })
-  }, [])
+    if (data && data.g_nombre) {
+      const emision = moment(data.g_fecha_emi)
+      const vencimiento = moment(data.g_fecha_ven)
+      const garantia = vencimiento.diff(emision, 'months')
+      return setProduct({
+        name: data.g_nombre,
+        model: data.g_modelo,
+        brand: data.g_marca,
+        serie: data.g_serie,
+        periodo: garantia,
+        emision: data.g_fecha_emi,
+        vencimiento: moment.utc(data.g_fecha_ven).format('DD/MM/YYYY'),
+        estado: data.g_estado,
+      })
+    }
+    return history.push('/')
+  }, [data, history])
   return (
     <>
       <Banner

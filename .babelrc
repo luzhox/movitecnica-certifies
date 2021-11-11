@@ -15,11 +15,7 @@
           "libs": "./app/libs",
           "pages": "./app/pages",
           "styles": "./app/styles",
-          "utils": "./app/utils",
-          "flux": "./app/flux",
-          "reducers": "./app/flux/reducers",
-          "actions": "./app/flux/actions",
-          "types": "./app/flux/types"
+          "utils": "./app/utils"
         }
       }
     ]

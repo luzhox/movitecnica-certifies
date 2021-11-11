@@ -1,21 +1,23 @@
 import React, { useState, useEffect } from 'react'
 import Button from '@components/Button'
 import Input from '@components/Input'
-import { Redirect } from 'react-router-dom'
-import axios from 'axios'
+import { useDispatch, useSelector } from 'react-redux'
+import { useHistory } from 'react-router-dom'
 import style from './style.module.scss'
+import * as actions from './state/actions'
 
 const Home = () => {
+  const history = useHistory()
+  const dispatch = useDispatch()
   const [isDisabled, setIsDisabled] = useState(true)
-  const [confirm, setConfirm] = useState(false)
   const [errorExist, setErrorExist] = useState(false)
+  const home = useSelector((state) => state.loader.home)
 
   const [form, setForm] = useState(false)
   const handleData = (value) => {
     setForm(value)
   }
   useEffect(() => {
-    console.log(form)
     if (form && form.length < 2) {
       setIsDisabled(true)
       return setErrorExist('Ingrese un número de serie válido')
@@ -24,23 +26,14 @@ const Home = () => {
     return setErrorExist(false)
   }, [form])
 
-  const submitForm = async () => {
-    await axios
-      .post('https://movitecnica.hadronica.pe/consultar', { g_serie: form })
-      .then((response) => {
-        if (response.data.length) {
-          sessionStorage.setItem('data', JSON.stringify(response.data[0]))
-          return setConfirm(true)
-        }
-        return setErrorExist('No existen registros para este número de serie')
-      })
-      .catch((error) => {
-        return console.error(error)
-      })
+  const submitForm = () => {
+    const success = () => {
+      history.push('/confirmacion')
+    }
+    dispatch(actions.callService(form, success))
   }
   return (
     <div className={style.wrapper}>
-      {confirm && <Redirect to='/confirmacion' />}
       <div className={style.wrapper__img}></div>
       <div className={style.wrapper__form}>
         <h2>Verifica tu producto</h2>
@@ -54,7 +47,10 @@ const Home = () => {
           onChange={handleData}
           minLength={2}
           maxLength={12}
-          hasError={errorExist.length ? errorExist : ''}
+          hasError={
+            // eslint-disable-next-line no-nested-ternary
+            errorExist.length ? errorExist : home.message ? home.message : ''
+          }
         />
 
         <Button
