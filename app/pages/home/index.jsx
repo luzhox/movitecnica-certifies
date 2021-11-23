@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import Button from '@components/Button'
 import Input from '@components/Input'
-import { useDispatch, useSelector } from 'react-redux'
-import { useHistory } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import style from './style.module.scss'
 import * as actions from './state/actions'
-
 const Home = () => {
-  const history = useHistory()
+  const navigate = useNavigate()
   const dispatch = useDispatch()
   const [isDisabled, setIsDisabled] = useState(true)
   const [errorExist, setErrorExist] = useState(false)
@@ -28,7 +27,7 @@ const Home = () => {
 
   const submitForm = () => {
     const success = () => {
-      history.push('/confirmacion')
+      navigate('/confirmacion')
     }
     dispatch(actions.callService(form, success))
   }

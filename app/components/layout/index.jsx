@@ -1,5 +1,4 @@
 import React from 'react'
-import { withRouter } from 'react-router-dom'
 import Header from '../commons/Header'
 const Layout = ({ children }) => {
   return (
@@ -10,4 +9,4 @@ const Layout = ({ children }) => {
   )
 }
 
-export default withRouter(Layout)
+export default Layout

@@ -1,51 +1,40 @@
-import { hot } from 'react-hot-loader/root'
-import { AppContainer } from 'react-hot-loader'
-
-import React, { lazy, Suspense } from 'react'
-import { Route, BrowserRouter, Switch } from 'react-router-dom'
+import React from 'react'
+import { Route, BrowserRouter, Routes } from 'react-router-dom'
 import Layout from 'components/layout'
 import { Provider } from 'react-redux'
 import Store from './redux/store'
-import history from './utils/history'
 import Home from './pages/home'
+import Confirmacion from './pages/confirmacion'
+import NotFound from './pages/404'
 const routes = [
   {
     path: '/',
-    Component: lazy(() => import('./pages/home')),
-    exact: true,
+    Component: <Home />,
   },
   {
     path: '/confirmacion',
-    Component: lazy(() => import('./pages/confirmacion')),
-    exact: true,
+    Component: <Confirmacion />,
+  },
+  {
+    path: '*',
+    Component: <NotFound />,
   },
 ]
 
-const Routero = () => {
+const Router = () => {
   return (
     <Provider store={Store}>
-      <AppContainer>
-        <BrowserRouter history={history}>
-          <Layout>
-            <Switch>
-              {routes.map(({ path, Component, exact }) => (
-                <Route
-                  path={path}
-                  key={path}
-                  exact={exact}
-                  component={() => (
-                    <Suspense fallback={<Home />}>
-                      <Component />
-                    </Suspense>
-                  )}
-                />
-              ))}
-            </Switch>
-          </Layout>
-        </BrowserRouter>
-      </AppContainer>
+      <BrowserRouter>
+        <Layout>
+          <Routes>
+            {routes.map(({ path, Component }) => (
+              <Route path={path} key={path} element={Component} />
+            ))}
+          </Routes>
+        </Layout>
+      </BrowserRouter>
     </Provider>
   )
 }
-Routero()
-export default hot(Routero)
+
+export default Router

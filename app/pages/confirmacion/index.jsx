@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import Banner from '@components/Banner'
 import moment from 'moment'
+import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import { useHistory } from 'react-router-dom'
-
 const Confirmacion = () => {
-  const history = useHistory()
-
+  const navigate = useNavigate()
   const [product, setProduct] = useState({
     name: '',
     model: '',
@@ -33,13 +31,13 @@ const Confirmacion = () => {
         estado: data.g_estado,
       })
     }
-    return history.push('/')
-  }, [data, history])
+    return navigate('/')
+  }, [data, navigate])
   return (
     <>
       <Banner
         route='./resources/assets/bg-banner.jpg'
-        text='!Tu garantía está próximo a vencer! Programa tu mantenimiento'
+        text='¡Tu garantía está próximo a vencer! Programa tu mantenimiento'
         btnText='¡Solicitalo ya!'
         btnUrl='https://wa.me/message/67NI2XRVSIL5C1'
       />
