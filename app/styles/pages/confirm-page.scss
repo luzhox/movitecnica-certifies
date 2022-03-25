@@ -74,8 +74,8 @@
         width: 100%;
         height: auto;
         text-align: right;
-       margin-top: 40px;
-       display: none;
+        margin-top: 40px;
+        display: none;
         @include media(desktopmini) {
             display: flex;
             flex-flow: wrap;
