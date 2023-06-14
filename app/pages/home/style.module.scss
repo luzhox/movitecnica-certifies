@@ -2,10 +2,12 @@
     display: flex;
     flex-flow: wrap;
     width: 100%;
+
     @include media(desktopmini) {
         min-height: calc(100vh - 84px);
         align-items: center;
     }
+
     &__img {
         color: $red;
         background: url($ASSETS +'movitecnica-certificados.jpg');
@@ -13,14 +15,17 @@
         background-size: cover;
         width: 100%;
         height: 200px;
+
         @include media(tablet) {
             height: 350px;
         }
+
         @include media(desktopmini) {
             width: col(19, 37);
             min-height: calc(100vh - 84px);
         }
     }
+
     &__form {
         font-size: 24px;
         display: flex;
@@ -31,12 +36,14 @@
         margin-left: auto;
         margin-top: 48px;
         margin-bottom: 48px;
+
         @include media(desktopmini) {
             max-width: 100%;
             width: col(10, 37);
             margin-left: col(4, 37);
             margin-top: 0px;
         }
+
         h2 {
             font-size: 2rem;
             line-height: 2.2rem;
@@ -46,6 +53,7 @@
             color: #001F30;
             margin-bottom: 8px;
         }
+
         p {
             font-weight: 300;
             font-size: 1.02rem;
@@ -55,6 +63,7 @@
             margin-top: 4px;
             margin-bottom: 24px;
         }
+
         button {
             width: 100%;
             height: 65px;
@@ -70,9 +79,8 @@
             background: #EA730E;
             font-weight: 700;
             margin-top: 20px;
-            &:disabled {
-                background: #CFD0E6;
-            }
+
+
         }
     }
 }

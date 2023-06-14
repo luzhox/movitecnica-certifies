@@ -39,7 +39,7 @@ const Confirmacion = () => {
         route='./resources/assets/bg-banner.jpg'
         text='¡Tu garantía está próximo a vencer! Programa tu mantenimiento'
         btnText='¡Solicitalo ya!'
-        btnUrl='https://wa.me/message/67NI2XRVSIL5C1'
+        btnUrl={`https://api.whatsapp.com/send/?phone=51969336875&text=Deseo+programar+el+mantenimiento+de+mi+equipo+${product.model}+serie+${product.serie}&type=phone_number&app_absent=0`}
       />
       <div className='confirm-page'>
         <div className='container'>

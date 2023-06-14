@@ -44,8 +44,11 @@ const Button = ({
       {...props}
     >
       {loading ? (
-        <div className='ui--loader'>
-          <div className='ui--spinner' />
+        <div className='lds-ring'>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
         </div>
       ) : (
         <>

@@ -9,6 +9,7 @@ const Home = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const [isDisabled, setIsDisabled] = useState(true)
+  const [loading, setLoading] = useState(false)
   const [errorExist, setErrorExist] = useState(false)
   const home = useSelector((state) => state.loader.home)
 
@@ -26,7 +27,9 @@ const Home = () => {
   }, [form])
 
   const submitForm = () => {
+    setLoading(true)
     const success = () => {
+      setLoading(false)
       navigate('/confirmacion')
     }
     dispatch(actions.callService(form, success))
@@ -56,6 +59,7 @@ const Home = () => {
           text='Verificar'
           size='medium'
           primary
+          loading={loading}
           disabled={isDisabled}
           onClick={() => submitForm()}
         />
